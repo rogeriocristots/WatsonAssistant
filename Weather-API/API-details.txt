@@ -1,0 +1,10 @@
+
+
+Weather API key
+0f2eb9a2feb9bbc47282ab9340253b05
+https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+38.736946 -9.142685
+https://api.openweathermap.org/data/2.5/weather?lat=38.736946&lon=-9.142685&appid=0f2eb9a2feb9bbc47282ab9340253b05
+
+https://api.openweathermap.org/data/2.5/weather?q=ponta+delgada,pt&appid=0f2eb9a2feb9bbc47282ab9340253b05
