@@ -23,7 +23,7 @@ rp(options).then((res) => {
 
 http.createServer(function (request, response) {
    target = process.env.TARGET ? process.env.TARGET : 'World' ;
-   msg = process.env.MSG ? process.env.MSG : 'My charming from server.js Hello \n' + WeatherReport + '\n';
+   msg = process.env.MSG ? process.env.MSG : 'Weather from server.js\n' + WeatherReport + '\n';
    response.writeHead(200, {'Content-Type': 'text/plain'});
    response.end(msg);
 }).listen(8080);
