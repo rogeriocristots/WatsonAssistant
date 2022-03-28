@@ -1,13 +1,13 @@
-let rp = require("request-promise");
-function main(params) {
-  const options = {
+const http = require('http');
+const options = {
     uri:
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
-      encodeURIComponent(params.object_of_interest) +
-      "&units=imperial&APPID=here_you_add_your_openweather_api_id",
+      "https://api.openweathermap.org/data/2.5/weather?lat=38.736946&lon=-9.142685&appid=0f2eb9a2feb9bbc47282ab9340253b05",
     json: true,
   };
-  return rp(options).then((res) => {
+
+let rp = require("request-promise");
+
+rp(options).then((res) => {
     let WeatherReport =
       "Current Temperature : " +
       res.main.temp +
@@ -20,5 +20,12 @@ function main(params) {
       " ,</br>Temp max : " +
       res.main.temp_max;
     return { message: WeatherReport };
-  });
-}
+
+http.createServer(function (request, response) {
+   target = process.env.TARGET ? process.env.TARGET : 'World' ;
+   msg = process.env.MSG ? process.env.MSG : 'My charming from server.js Hello \n' + WeatherReport + '\n';
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   response.end(msg);
+}).listen(8080);
+
+console.log('Server running at http://0.0.0.0:8080/');
